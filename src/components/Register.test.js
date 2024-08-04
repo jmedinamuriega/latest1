@@ -1,9 +1,10 @@
+/* eslint-env jest */
 import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import axiosInstance from '../api/axiosInstance';  // Import your axiosInstance
+import axiosInstance from '../api/axiosInstance';  
 import Register from './Register';
 
-jest.mock('../api/axiosInstance');  // Mock axiosInstance
+jest.mock('../api/axiosInstance');  
 
 describe('Register', () => {
   test('registers a user', async () => {
