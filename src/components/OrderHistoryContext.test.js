@@ -24,7 +24,7 @@ describe('OrderHistory with Context', () => {
       </Provider>
     );
 
-    // Check for text that should be in the document
+
     expect(await screen.findByText(/order history/i)).toBeInTheDocument();
     expect(screen.getByText(/Order ID: 1/i)).toBeInTheDocument();
     expect(screen.getByText(/Order ID: 2/i)).toBeInTheDocument();
