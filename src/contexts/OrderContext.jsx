@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { createContext, useState } from 'react';
+import PropTypes from 'prop-types';
 
 export const OrderContext = createContext();
 
@@ -15,4 +16,8 @@ export const OrderProvider = ({ children }) => {
       {children}
     </OrderContext.Provider>
   );
+};
+
+OrderProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 };

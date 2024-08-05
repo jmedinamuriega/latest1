@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { createContext, useState, useEffect } from 'react';
+import PropTypes from 'prop-types'; // Import PropTypes
 import axios from 'axios';
 
 export const AuthContext = createContext();
@@ -35,4 +36,9 @@ export const AuthProvider = ({ children }) => {
       {children}
     </AuthContext.Provider>
   );
+};
+
+// Add PropTypes validation
+AuthProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 };
