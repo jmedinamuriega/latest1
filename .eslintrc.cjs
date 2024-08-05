@@ -10,7 +10,7 @@ module.exports = {
     'plugin:react/jsx-runtime',
     'plugin:react-hooks/recommended',
   ],
-  ignorePatterns: ['dist'], // Updated to ignore only dist, .eslintrc.cjs isn't necessary here
+  ignorePatterns: ['dist'], 
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
