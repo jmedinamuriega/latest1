@@ -1,5 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+// Helper function to update session storage
+const updateSessionStorage = (state) => {
+  sessionStorage.setItem('cart', JSON.stringify(state));
+};
+
 const initialState = JSON.parse(sessionStorage.getItem('cart')) || {
   items: [],
   totalQuantity: 0,
@@ -19,7 +24,7 @@ const cartSlice = createSlice({
       }
       state.totalQuantity += action.payload.quantity;
       state.totalPrice += action.payload.price * action.payload.quantity;
-      sessionStorage.setItem('cart', JSON.stringify(state));
+      updateSessionStorage(state);
     },
     updateQuantity(state, action) {
       const { id, quantity } = action.payload;
@@ -28,7 +33,7 @@ const cartSlice = createSlice({
         state.totalQuantity += quantity - existingItem.quantity;
         state.totalPrice += (quantity - existingItem.quantity) * existingItem.price;
         existingItem.quantity = quantity;
-        sessionStorage.setItem('cart', JSON.stringify(state));
+        updateSessionStorage(state);
       }
     },
     removeFromCart(state, action) {
@@ -38,7 +43,7 @@ const cartSlice = createSlice({
         state.totalQuantity -= itemToRemove.quantity;
         state.totalPrice -= itemToRemove.price * itemToRemove.quantity;
         state.items = state.items.filter(item => item.id !== itemId);
-        sessionStorage.setItem('cart', JSON.stringify(state));
+        updateSessionStorage(state);
       }
     },
     clearCart(state) {

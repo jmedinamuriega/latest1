@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { createContext, useState, useEffect } from 'react';
 
 export const CartContext = createContext();
